@@ -1,0 +1,37 @@
+'''
+create program to track calories eaten.  this is something that I already do but re-doing the macros (%fat / %carb / %protein)
+each time I eat something different is getting to be tedious.
+I realize there are plenty of applications out there that already do this, but the process seemed simple enough that I could
+make my own relatively quickly.
+
+phase 1: framework
+	- input is a file where each line is a food item in a small unit with nutrition facts
+	- print out calculations, probably just to console for now
+phase 2: foundation
+	- consider importing free database of lots of foods and working with that
+phase 3: flair
+	- GUI with dropdowns, etc.
+
+
+'''
+
+
+f = open('item2.txt','r')
+
+temp = []
+for line in f:
+	temp = [x.strip() for x in line.split(',')]
+	print(temp)
+	# how to make each object have its name as an identifier?  ...sounds like a primary key of a database!
+
+class food:
+	def __init__(self, fullitem):
+		self.name = fullitem[0]
+		self.quantity = float(fullitem[1])
+		self.unit = fullitem[2]
+		self.fat = float(fullitem[3])
+		self.carb = float(fullitem[4])
+		self.protein = float(fullitem[5])
+		self.calories = float(fullitem[6])
+		
+		
